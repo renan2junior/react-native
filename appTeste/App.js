@@ -23,40 +23,20 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.principal}>
-       <Video source={{uri: urlVideo}}
-              paused={repetir}
-              repeat={repetir}
-              controls={controles}
+          <Video source={{uri: urlVideo}}
+              ref={(ref) => {
+               this.player = ref
+              }} 
               style={styles.backgroundVideo} />
-           <Text style={styles.texto}>Apena um titulo</Text>       
-           <Button style={styles.pause} title="Pause" onPress={pausa} />
-      </View>
-  
     );
   }
 }
-
 const styles = StyleSheet.create({
   backgroundVideo: {
-    paddingHorizontal: 100,
-    paddingVertical: 100,
-    marginTop: 100,
-    flex:1
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
-  principal: {
-    backgroundColor: 'red',
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-  texto:{
-    backgroundColor: '#fff',
-    paddingHorizontal: 100,
-    paddingVertical: 100,
-    marginTop: 100,
-  },
-  pause:{
-    flex:1,
-    backgroundColor:'#fff',
-  }
 });
